@@ -6,7 +6,7 @@ name: Build and deploy ASP app to Azure Web App - TwinklePortfolio
 on:
   push:
     branches:
-      - main
+      - index
   workflow_dispatch:
 
 jobs:
@@ -54,4 +54,4 @@ jobs:
           app-name: 'TwinklePortfolio'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EC15ED3D144F42DBB56C0C9B92B648D4 }}
-          package: .
+          package: '${{github.workspace}}/target/*.jar'
