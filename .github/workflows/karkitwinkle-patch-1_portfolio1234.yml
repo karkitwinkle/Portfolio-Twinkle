@@ -2,6 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: Build and deploy ASP app to Azure Web App - portfolio1234
+msbuild [sln file] -t:restore -p:RestorePackagesConfig=true
 
 on:
   push:
@@ -55,3 +56,4 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_45CE3D1176A5459CA3F7EEDBAE0DADB9 }}
           package: .
+          
